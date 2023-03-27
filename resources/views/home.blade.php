@@ -46,7 +46,7 @@
 <main id="main">
 
   <!-- ======= Clients Section ======= -->
-  <section id="clients" class="clients">
+  <section hidden id="clients" class="clients">
     <div class="container" data-aos="zoom-out">
 
       <div class="clients-slider swiper">
@@ -66,7 +66,7 @@
   </section><!-- End Clients Section -->
 
   <!-- ======= Stats Counter Section ======= -->
-  <section id="stats-counter" class="stats-counter">
+  <section hidden id="stats-counter" class="stats-counter">
     <div class="container" data-aos="fade-up">
 
       <div class="row gy-4 align-items-center">
@@ -100,101 +100,65 @@
   </section><!-- End Stats Counter Section -->
 
   <!-- ======= Our Services Section ======= -->
-  <section id="services" class="services sections-bg">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-header">
-        <h2>Tabungan</h2>
-        <p>Produk tabungan di BPR ADY dirancang untuk andayang menginginkan program tabungan mnarik</p>
-      </div>
+  <section id="home_minibanner" class="home_minibanner">
+    <div class="container-fluid" data-aos="fade-up">
 
       <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-8 col-md-8 my_col">
           <div class="service-item  position-relative">
             <div class="icon">
               <i class="bi bi-activity"></i>
             </div>
             <h3>Buka Tabungan</h3>
             <p>sekarang buka rekening bisa dari mana aja.</p>
-            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
           </div>
         </div><!-- End Service Item -->
 
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-md-4 my_col">
           <div class="service-item position-relative">
-            <div class="icon">
-              <i class="bi bi-broadcast"></i>
-            </div>
-            <h3>Tabungan Sikaya</h3>
-            <p>Bagi anda yang ingin meningkatkan kedisplinan dalam menabung</p>
-            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+            <img class="home_img_support" src="{{url('img/support.png')}}" />
+            <p class="text-center">Ada pertanyaan? silahkan hubungi kami.</p>
           </div>
         </div><!-- End Service Item -->
 
-        <div class="col-lg-4 col-md-6">
-          <div class="service-item position-relative">
-            <div class="icon">
-              <i class="bi bi-easel"></i>
-            </div>
-            <h3>Virtual Account BPR ADY</h3>
-            <p>Pilihan tepat bagi anda yang menginginkan transaksi cepat</p>
-            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-          </div>
-        </div><!-- End Service Item -->
       </div>
 
     </div>
   </section><!-- End Our Services Section -->
 
   <!-- ======= Portfolio Section ======= -->
-  <section id="portfolio" class="portfolio sections-bg">
-    <div class="container" data-aos="fade-up">
+  <section id="home_card_menu" class="home_card_menu">
+    <div class="container-fluid" data-aos="fade-up">
 
-      <div class="section-header">
-        <h2>Kredit</h2>
-        <p>BPR Lestari menyediakan beragam jenis produk krdit untuk mewujudkan impian anda, keluarga dan juga untuk para pebisnis dan pengusaha.</p>
-      </div>
+      <div class="home_card_menu-isotope" data-aos-delay="100">
 
-      <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4 home_card_menu-container">
 
-        <!-- <div>
-          <ul class="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-product">Product</li>
-            <li data-filter=".filter-branding">Branding</li>
-            <li data-filter=".filter-books">Books</li>
-          </ul>
-        </div> -->
-        <!-- End Portfolio Filters -->
-
-        <div class="row gy-4 portfolio-container">
-
-          <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
+          <div class="col-xl-4 col-md-6 home_card_menu-item filter-app my_col ">
+            <div class="home_card_menu-wrap">
               <a href="/img/portfolio/app-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="/img/portfolio/app-1.jpg" class="img-fluid" alt=""></a>
-              <div class="portfolio-info">
+              <div class="home_card_menu-info">
                 <h4><a href="portfolio-details.html" title="More Details">Kredit Multiguna</a></h4>
                 <p>Memnuhi kebutuhan konsumtif anda dengan lebih mudah</p>
               </div>
             </div>
           </div><!-- End Portfolio Item -->
 
-          <div class="col-xl-4 col-md-6 portfolio-item filter-product">
-            <div class="portfolio-wrap">
+          <div class="col-xl-4 col-md-6 home_card_menu-item filter-product my_col">
+            <div class="home_card_menu-wrap">
               <a href="/img/portfolio/product-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="/img/portfolio/product-1.jpg" class="img-fluid" alt=""></a>
-              <div class="portfolio-info">
+              <div class="home_card_menu-info">
                 <h4><a href="portfolio-details.html" title="More Details">Kredit KPR</a></h4>
                 <p>Kredit KPR untuk keperluan pembelian rumah baik dari developer maupun non developer.</p>
               </div>
             </div>
           </div><!-- End Portfolio Item -->
 
-          <div class="col-xl-4 col-md-6 portfolio-item filter-branding">
-            <div class="portfolio-wrap">
+          <div class="col-xl-4 col-md-6 home_card_menu-item filter-branding my_col">
+            <div class="home_card_menu-wrap">
               <a href="/img/portfolio/branding-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="/img/portfolio/branding-1.jpg" class="img-fluid" alt=""></a>
-              <div class="portfolio-info">
+              <div class="home_card_menu-info">
                 <h4><a href="portfolio-details.html" title="More Details">Kredit Modal Kerja</a></h4>
                 <p>Manfaatkan fasilitas kredit modal kerja untuk mengembangakan dan memperluas jaringan bisnis.</p>
               </div>
