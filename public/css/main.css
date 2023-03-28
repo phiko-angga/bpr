@@ -2727,7 +2727,7 @@ section {
 .home_minibanner .service-item {
   padding: 40px;
   background-color: #094A9E;
-  height: 360px;
+  height: 350px;
   /* border-radius: 10px; */
 }
 
@@ -2891,4 +2891,10 @@ padding-top: 10px;
 
 .home_card_menu .home_card_menu-wrap:hover img {
   transform: scale(1.1);
+}
+
+.home_mini_banner{
+  width: 100%;
+  height: 350px;;
+
 }
