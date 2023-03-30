@@ -56,6 +56,12 @@
   <!-- End Footer -->
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="wa-btn d-flex align-items-center justify-content-center">
+    <img src="{{url('img/whatsapp_icon.png')}}" alt="">
+    <div class="wa-tooltip">
+      <div>Hubungi kami</div>
+    </div>
+  </a>
 
   <div id="preloader"></div>
 

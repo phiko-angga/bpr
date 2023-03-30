@@ -190,6 +190,73 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Whatsapp button
+--------------------------------------------------------------*/
+.wa-btn {
+  
+  visibility: visible;
+  opacity: 1;
+  bottom: 90px;
+  position: fixed;
+  right: 15px;
+  z-index: 99999;
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+
+.wa-btn i {
+  font-size: 24px;
+  color: #fff;
+  line-height: 0;
+}
+
+.wa-btn:hover {
+  background: #094a9d;
+  color: #fff;
+}
+
+.wa-btn img {
+  width: 64px;
+  height: auto;
+}
+
+.wa-btn .wa-tooltip {
+  position: absolute;
+  top: calc(var(--s)/2 - 16px);
+  right: 70px;
+  max-width: calc(100vw - 105px);
+  height: 32px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 16px;
+  background: #fff;
+  color: #094a9d;
+  line-height: 31px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity .3s ease-out .4s;
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,.4));
+  pointer-events: none;
+}
+
+.wa-btn .wa-tooltip:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: -6px;
+  border: 8px solid transparent;
+  border-width: 6px 0 6px 8px;
+  border-left-color: #fff;
+}
+
+.wa-btn:hover .wa-tooltip {
+  opacity:1;animation:none;transition:opacity .2s;
+}
+
+/*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
 #preloader {
