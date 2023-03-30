@@ -1913,11 +1913,12 @@ section {
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
-  width: 80%;
+  max-width: 1400px;
   position: relative;
   background: var(--color-primary);
   padding: 60px 0 0 0;
-  margin:auto;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 @media (min-width: 1365px) {
@@ -2723,7 +2724,7 @@ section {
 
 .home_minibanner {
   padding:5px;
-  width:80%;
+  /* width:80%; */
   height:250px;
   margin:auto;
 }
@@ -2810,7 +2811,7 @@ section {
 --------------------------------------------------------------*/
 .home_card_menu{
 padding-top: 10px;
-width: 80%;
+/* width: 80%; */
 margin: 0 auto;
 }
 
@@ -2869,7 +2870,7 @@ margin: 0 auto;
   padding: 25px 20px;
   background-color: #094a9d;
   position: relative;
-  border-top: 1px solid #f3f3f3;
+  /* border-top: 1px solid #f3f3f3; */
   z-index: 2;
 }
 
@@ -2903,4 +2904,10 @@ margin: 0 auto;
   width: 100%;
   height: 350px;;
 
+}
+
+#main{
+  max-width: 1400px;
+  margin-left:auto;
+  margin-right:auto;
 }
