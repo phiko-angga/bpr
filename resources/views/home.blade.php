@@ -362,7 +362,7 @@
 
       <div class="section-header">
         <h2>Contact</h2>
-        <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem dolore earum</p>
+        <p>Silahkan Contact Kami Apabila ada yang ingin ditanyankan. Terima Kasih</p>
       </div>
 
       <div class="row gx-lg-0 gy-4">
@@ -374,7 +374,8 @@
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
                 <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p>Jln Gajah Mada No.202
+Genteng, Banyuwangi</p>
               </div>
             </div><!-- End Info Item -->
 
@@ -382,7 +383,7 @@
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>bpradygenteng@gmail.com</p>
               </div>
             </div><!-- End Info Item -->
 
@@ -390,7 +391,7 @@
               <i class="bi bi-phone flex-shrink-0"></i>
               <div>
                 <h4>Call:</h4>
-                <p>+1 5589 55488 55</p>
+                <p>(0333) 845 626, 845 900</p>
               </div>
             </div><!-- End Info Item -->
 

@@ -19,7 +19,7 @@
 /* Colors */
 :root {
   --color-default: #222222;
-  --color-primary: #008374;
+  --color-primary: #094A9E;
   --color-secondary: #f85a40;
 }
 
@@ -248,7 +248,7 @@ section {
 # Header
 --------------------------------------------------------------*/
 .topbar {
-  background: #00796b;
+  background: #2a82f5;
   height: 40px;
   font-size: 14px;
   transition: all 0.5s;
@@ -1913,10 +1913,11 @@ section {
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
-  width: 100%;
+  width: 80%;
   position: relative;
   background: var(--color-primary);
   padding: 60px 0 0 0;
+  margin:auto;
 }
 
 @media (min-width: 1365px) {
@@ -2721,19 +2722,22 @@ section {
 }
 
 .home_minibanner {
-  padding: 20px 0;
+  padding:5px;
+  width:80%;
+  height:250px;
+  margin:auto;
 }
 
 .home_minibanner .service-item {
   padding: 40px;
-  background-color: #094A9E;
-  height: 350px;
+  background-color: #63a4f7;
+  height: 300px;
   /* border-radius: 10px; */
 }
 
 .home_minibanner .service-item .icon {
-  width: 48px;
-  height: 48px;
+  width: 30px;
+  height: 30px;
   position: relative;
   margin-bottom: 50px;
 }
@@ -2793,7 +2797,7 @@ section {
 }
 
 .home_img_support{
-  width : 120px;
+  width : 200px;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -2806,6 +2810,8 @@ section {
 --------------------------------------------------------------*/
 .home_card_menu{
 padding-top: 10px;
+width: 80%;
+margin: 0 auto;
 }
 
 .home_card_menu .home_card_menu-flters {
@@ -2813,7 +2819,7 @@ padding-top: 10px;
   margin: 0 auto;
   list-style: none;
   text-align: center;
-}
+ }
 
 .home_card_menu .home_card_menu-flters li {
   cursor: pointer;
