@@ -121,50 +121,7 @@
     </div>
   </section><!-- End Our Services Section -->
 
-  <!-- ======= Portfolio Section ======= -->
-  <section id="home_card_menu" class="home_card_menu">
-    <div class="container-fluid" data-aos="fade-up">
-
-      <div class="home_card_menu-isotope" data-aos-delay="100">
-
-        <div class="row gy-4 home_card_menu-container">
-
-          <div class="col-xl-4 col-md-6 home_card_menu-item filter-app my_col ">
-            <div class="home_card_menu-wrap">
-              <a href="/img/portfolio/app-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="/img/portfolio/app-1.jpg" class="img-fluid" alt=""></a>
-              <div class="home_card_menu-info">
-                <h4><a href="portfolio-details.html" title="More Details">Kredit Multiguna</a></h4>
-                <p>Memnuhi kebutuhan konsumtif anda dengan lebih mudah</p>
-              </div>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-          <div class="col-xl-4 col-md-6 home_card_menu-item filter-product my_col">
-            <div class="home_card_menu-wrap">
-              <a href="/img/portfolio/product-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="/img/portfolio/product-1.jpg" class="img-fluid" alt=""></a>
-              <div class="home_card_menu-info">
-                <h4><a href="portfolio-details.html" title="More Details">Kredit KPR</a></h4>
-                <p>Kredit KPR untuk keperluan pembelian rumah baik dari developer maupun non developer.</p>
-              </div>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-          <div class="col-xl-4 col-md-6 home_card_menu-item filter-branding my_col">
-            <div class="home_card_menu-wrap">
-              <a href="/img/portfolio/branding-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="/img/portfolio/branding-1.jpg" class="img-fluid" alt=""></a>
-              <div class="home_card_menu-info">
-                <h4><a href="portfolio-details.html" title="More Details">Kredit Modal Kerja</a></h4>
-                <p>Manfaatkan fasilitas kredit modal kerja untuk mengembangakan dan memperluas jaringan bisnis.</p>
-              </div>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-        </div><!-- End Portfolio Container -->
-
-      </div>
-
-    </div>
-  </section><!-- End Portfolio Section -->
+  @include("part.card_list_pages")
 
   <!-- ======= Frequently Asked Questions Section ======= -->
   <section id="faq" class="faq">

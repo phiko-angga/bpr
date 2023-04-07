@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,10 @@ use App\Http\Controllers\BeritaController;
 */
 
 Route::get('/', [HomeController::class,'index']);
-Route::get('berita', [BeritaController::class,'index'])->name('berita');
+Route::get('/home', [HomeController::class,'index']);
+Route::get('/page-not-found', function(){
+    return view('notfound');
+});
+
+Route::get('/{pages}', [PagesController::class,'index']);
+Route::get('/{category}/{post}', [PostController::class,'index']);

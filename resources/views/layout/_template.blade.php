@@ -7,7 +7,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>
     @if(isset($title)){{$title}}
-    @else 'Cashier - Aplikasi Penjualan Kasir'
+    @else 'BPR'
     @endif
   </title>
   <meta content="" name="description">
@@ -49,7 +49,7 @@
     @include('layout/_navbar')
   <!-- End Header -->
 
-  @yield('content')
+    @yield('content')
 
   <!-- ======= Footer ======= -->
     @include('layout/_footer')

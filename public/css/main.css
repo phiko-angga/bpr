@@ -2939,6 +2939,7 @@ margin: 0 auto;
   position: relative;
   /* border-top: 1px solid #f3f3f3; */
   z-index: 2;
+  height: 100%;
 }
 
 .home_card_menu .home_card_menu-wrap .home_card_menu-info h4 {
