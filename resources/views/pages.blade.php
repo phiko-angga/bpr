@@ -1,11 +1,11 @@
 @extends('layout._template',['title' => 'PAGES'])
 @section('content')
 
-<main id="main">
+<main id="main" class="pages">
 
 <!-- ======= Breadcrumbs ======= -->
 <div class="breadcrumbs">
-  <div class="page-header d-flex align-items-center" style="background-size:cover; background-image: url({{url('img/'.$page->image)}});">
+  <div class="page-header d-flex align-items-center" style="background-size:cover; background-image: url({{url('img/pages-banner/'.$page->image)}});">
     <div class="container position-relative">
       <div class="row d-flex">
         <div class="col-lg-6 text-left">
@@ -28,7 +28,7 @@
   <nav>
     <div class="container">
       <ol>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="{{url('/')}}">Home</a></li>
         <li>{{$page->title}}</li>
       </ol>
     </div>

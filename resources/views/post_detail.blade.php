@@ -1,11 +1,11 @@
 @extends('layout._template',['title' => $post->title])
 @section('content')
 
-<main id="main">
+<main id="main" class="post-detail">
 
 <!-- ======= Breadcrumbs ======= -->
 <div class="breadcrumbs">
-  <div class="page-header d-flex align-items-center" style="background-size:cover; background-image: url({{url('img/cta-bg.jpg')}});">
+  <div class="page-header d-flex align-items-center" style=" background-image: url({{url('img/post/'.$post->image)}});">
     <div class="container position-relative">
       <div class="row d-flex">
         <div class="col-lg-6 text-left">
@@ -28,7 +28,8 @@
   <nav>
     <div class="container">
       <ol>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="{{url('/')}}">Home</a></li>
+        <li><a href="{{url($post->slug_category)}}">{{$post->category}}</a></li>
         <li>{{$post->title}}</li>
       </ol>
     </div>
@@ -40,19 +41,20 @@
     <div class="row g-5">
       
       <div class="col-lg-12">
-        <article class="blog-details">
+        <!-- <article class="blog-details"> -->
 
-          <div class="post-img">
+          <!-- <div class="post-img">
             <img src="{{url('img/post/'.$post->image)}}" alt="" class="img-fluid">
-          </div>
+          </div> -->
 
-          <h2 class="title">{{$post->title}}</h2>
+          <!-- <h2 class="title">{{$post->title}}</h2> -->
 
-          <div class="meta-top">
+          <!-- <div class="meta-top">
             <ul>
               <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="2020-01-01">{{Carbon\Carbon::parse($post->date_publish)->format('M d, Y')}}</time></a></li>
             </ul>
-          </div><!-- End meta top -->
+          </div> -->
+          <!-- End meta top -->
 
           <div class="content">
             {!!$post->contents!!}
@@ -72,7 +74,7 @@
             </ul>
           </div><!-- End meta bottom -->
 
-        </article>
+        <!-- </article> -->
       </div>
       
     </div>

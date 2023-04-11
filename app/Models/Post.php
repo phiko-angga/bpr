@@ -51,7 +51,8 @@ class Post extends Model
     }
  
     public function getPost($category, $post){
-        $data = Self::select('tb_post.*')->selectRaw('pc.slug as slug_category')
+        $data = Self::select('tb_post.*','pc.name as category')
+        ->selectRaw('pc.slug as slug_category')
         ->join('tb_post_category as pc','pc.id','=','tb_post.post_category_id')
         ->where('pc.slug',$category)->where('tb_post.slug',$post)->first();
     

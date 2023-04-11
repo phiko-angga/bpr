@@ -16,7 +16,7 @@
                 </a>
                 <div class="home_card_menu-info">
                   <h4><a href="{{url($post->slug_category.'/'.$post->slug)}}" title="Lihat detail">{{$post->title}}</a></h4>
-                  <p>{{$post->description}}</p>
+                  <p>{{Str::limit($post->description, 100, '...')}}</p>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
