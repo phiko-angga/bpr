@@ -58,14 +58,14 @@
             {!!$post->contents!!}
           </div><!-- End post content -->
 
-          <div class="meta-bottom">
+          <div hidden class="meta-bottom">
             <i class="bi bi-folder"></i>
             <ul class="cats">
               <li><a href="#">Business</a></li>
             </ul>
 
             <i class="bi bi-tags"></i>
-            <ul class="tags">
+            <ul hidden class="tags">
               <li><a href="#">Creative</a></li>
               <li><a href="#">Tips</a></li>
               <li><a href="#">Marketing</a></li>
