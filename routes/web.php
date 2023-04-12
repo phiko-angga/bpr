@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostAdminController;
 use App\Http\Controllers\Admin\PostCategoryAdminController;
 use App\Http\Controllers\Admin\PagesAdminController;
+use App\Http\Controllers\Admin\HomeBannerAdminController;
 use App\Http\Controllers\Admin\UsersAdminController;
 
 /*
@@ -38,6 +39,7 @@ Route::group(['prefix' => 'adminpanel','middleware' => 'auth'], function () {
     Route::get('/dashboard', [DashboardController::class,'index'])->name('admin_dashboard');
     Route::resource('/post', PostAdminController::class)->name('*','admin_post');
     Route::resource('/post-category', PostCategoryAdminController::class)->name('*','admin_post_category');
+    Route::resource('/home-banner', HomeBannerAdminController::class)->name('*','admin_banner');
     Route::resource('/pages', PagesAdminController::class)->name('*','admin_pages');
     Route::resource('/users', UsersAdminController::class)->name('*','admin_user');
 

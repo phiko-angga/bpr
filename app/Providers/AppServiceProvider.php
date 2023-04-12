@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Pages;
 use App\Models\Post;
 use App\Models\PostPages;
+use App\Models\HomeBanner;
 use App\Models\Menu;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
@@ -43,9 +44,13 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('part.card_list_beritatop3', function ($view) {
-            
             $posts_publish = Post::with('category')->where('status','=','publish')->where('jenis_post','=','post')->orderBy('date_publish','desc')->limit(3)->get();
             view()->share('posts', $posts_publish);
+        });
+
+        view()->composer('part.home_banner', function ($view) {
+            $banner = HomeBanner::where('status','=','publish')->orderBy('order','asc')->get();
+            view()->share('banner', $banner);
         });
 
         view()->composer('layout._navbar', function ($view) {

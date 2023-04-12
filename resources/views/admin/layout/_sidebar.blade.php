@@ -25,6 +25,12 @@
         <span class="menu-title">Pages</span>
       </a>
     </li>
+    <li class="nav-item {{ Request::segment(2) == 'home-banner' ? 'active' : '' }}">
+      <a class="nav-link " href="{{route('home-banner.index')}}">
+        <i class="mdi mdi-grid-large menu-icon"></i>
+        <span class="menu-title">Home Banner</span>
+      </a>
+    </li>
     <li class="nav-item {{ Request::segment(2) == 'users' ? 'active' : '' }}">
       <a class="nav-link " href="{{route('users.index')}}">
         <i class="mdi mdi-grid-large menu-icon"></i>

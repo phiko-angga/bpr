@@ -1,4 +1,4 @@
-@extends('admin.layout._template',['title' => 'Form Pages - Admin Panel'])
+@extends('admin.layout._template',['title' => 'Form Home Banner - Admin Panel'])
 
 @section('style')
 <script src="https://cdn.tiny.cloud/1/229rplzchku15yv2g5o5o4nauey7a4s4lda3esg015pxpm2e/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
@@ -6,7 +6,7 @@
 
 @section('content')
 
-<form method="post" enctype="multipart/form-data" action="{{$action == 'store' ? route('pages.store') : route('pages.update',$page->id)}}">
+<form method="post" enctype="multipart/form-data" action="{{$action == 'store' ? route('home-banner.store') : route('home-banner.update',$banner->id)}}">
     @if($action == 'update')
     <input name="_method" type="hidden" value="PUT">
     @endif
@@ -33,21 +33,16 @@
                     @endif
 
                     @csrf
-                    <input type="hidden" name="id" id="id" value="{{old('id',isset($page) ? $page->id : '')}}">
-                    <div class="form-group"><label>Title</label>
-                        <input required autofocus type="text" class="form-control form-control-sm" name="title" id="title" placeholder="Title Post" value="{{old('title',isset($page) ? $page->title : '')}}" />
-                    </div>
-
-                    <div class="form-group"><label>Slug</label>
-                        <input required type="text" class="form-control form-control-sm" name="slug" id="slug" placeholder="" value="{{old('slug',isset($page) ? $page->slug : '')}}" />
-                    </div>
+                    <input type="hidden" name="id" id="id" value="{{old('id',isset($banner) ? $banner->id : '')}}">
+                    
                     <div class="form-group"><label>Description</label>
-                        <input required type="text" class="form-control form-control-sm" name="description" id="description" placeholder="" value="{{old('description',isset($page) ? $page->description : '')}}" />
+                        <input autofocus required type="text" class="form-control form-control-sm" name="description" id="description" placeholder="" value="{{old('description',isset($banner) ? $banner->description : '')}}" />
+                    </div>
+                    
+                    <div class="form-group"><label>Urutan tampil</label>
+                        <input required type="number" class="form-control form-control-sm" name="order" id="order" placeholder="" value="{{old('order',isset($banner) ? $banner->order : ++$total_banner)}}" />
                     </div>
 
-                    <div class="form-group"><label>Content</label>
-                        <textarea class="form-control form-control-sm" id="tiny" name="contents">{{old('contents',isset($page) ? $page->contents : '')}}</textarea>
-                    </div>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
         </div><!-- /.col -->
@@ -88,7 +83,7 @@
                                 <label id="file_from_gallery" class="btn btn-sm btn-primary btn-fw btn-sm pr-3" style="cursor:pointer">From gallery</label>
 
                                 <div class="row">
-                                    <img id="preview" src="{{isset($page) ? url('img/pages-banner/'.$page->image) : ''}}" class="img-thumbnail" style="height:190px;width:100%">
+                                    <img id="preview" src="{{isset($banner) ? url('img/banner/'.$banner->image) : ''}}" class="img-thumbnail" style="height:190px;width:100%">
                                     <input type="hidden" name="gambar_from" id="gambar_from">
                                     <input type="hidden" name="nama_gambar" id="nama_gambar">
                                 </div>
@@ -105,5 +100,5 @@
 @endsection
 
 @section('script')
-    @include('admin/pages/form_js')
+    @include('admin/post/form_js')
 @endsection

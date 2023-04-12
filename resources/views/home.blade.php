@@ -2,47 +2,8 @@
 @section('content')
 
 <!-- ======= Hero Section ======= -->
-<section id="hero" class="hero" style="height:100%">
-    <div class="container-fluid position-relative" style="padding-left:0;padding-right:0">
-        <div class="row gy-5" data-aos="fade-in">
-            <div style="margin-top:0" id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="2000">
-                        <img src="/img/banner/finance.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item" data-bs-interval="4000">
-                        <img src="/img/banner/finance2.jpg" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            <!-- <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
-                <h2>Welcome to <span>Impact</span></h2>
-                <p>Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
-                <div class="d-flex justify-content-center justify-content-lg-start">
-                    <a href="#about" class="btn-get-started">Get Started</a>
-                    <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-                </div>
-            </div>
-            <div class="col-lg-6 order-1 order-lg-2">
-                <img src="/img/hero-img.svg" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
-            </div> -->
-        </div>
-    </div>
-</section>
+@include('part.home_banner')
 <!-- End Hero Section -->
-
 <main id="main">
 
   <!-- ======= Clients Section ======= -->
