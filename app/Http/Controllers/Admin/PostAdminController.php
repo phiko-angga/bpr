@@ -74,6 +74,7 @@ class PostAdminController extends Controller
             $data['author'] = $user;
             $data['editor'] = $user;
             $data['status'] = $request->submit;
+            $data['jenis_post'] = isset($request->asberita) ? $request->asberita : 'info';
 
             $date_publish = Carbon::parse($request->date_publish)->format('Y-m-d');
             $time_publish = Carbon::parse($request->time_publish)->format('H:i:s');
@@ -169,6 +170,7 @@ class PostAdminController extends Controller
             try {
                 $data = $request->only(['title','slug','description','contents','post_category_id']);
 
+                $data['jenis_post'] = isset($request->asberita) ? $request->asberita : 'info';
                 $data['status'] = $request->submit;
 
                 $date_publish = Carbon::parse($request->date_publish)->format('Y-m-d');

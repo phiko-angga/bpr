@@ -38,7 +38,13 @@ class AppServiceProvider extends ServiceProvider
             
             $post = new Post;
             $posts = $post->getAllByPages(request()->path());
-            $posts_publish = $posts->where('status','=','publish');
+            $posts_publish = $posts->where('status','=','publish')->where('jenis_post','=','info');
+            view()->share('posts', $posts_publish);
+        });
+
+        view()->composer('part.card_list_beritatop3', function ($view) {
+            
+            $posts_publish = Post::with('category')->where('status','=','publish')->where('jenis_post','=','post')->orderBy('date_publish','desc')->limit(3)->get();
             view()->share('posts', $posts_publish);
         });
 

@@ -23196,3 +23196,7 @@ dl li {
 select.form-control, .dataTables_wrapper select {
   color: #212529;
 }
+
+.form-check .form-check-label {
+    margin-left: 5px;
+}

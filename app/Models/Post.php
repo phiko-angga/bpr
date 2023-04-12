@@ -45,7 +45,9 @@ class Post extends Model
         ->join('tb_post_category as pc','pc.id','=','tb_post.post_category_id')
         ->join('tb_post_pages as pp','pp.post_id','=','tb_post.id')
         ->join('tb_pages as p','p.id','=','pp.page_id')
-        ->where('p.slug',$page)->get();
+        ->where('p.slug',$page)
+        ->orderBy('tb_post.date_publish','desc')
+        ->get();
     
         return $data;
     }

@@ -1,4 +1,4 @@
-@extends('layout._template',['title' => 'PAGES'])
+@extends('layout._template',['title' => $page->title.' - BPR ADY'])
 @section('content')
 
 <main id="main" class="pages">

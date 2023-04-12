@@ -15,6 +15,17 @@
             tokenSeparators: [',', ' '],
         })
         $('#page_id').trigger('change.select2');
+
+        if($("#asberita").data('flag') == 'checked') $("#asberita").trigger('click');
+    })
+
+    $(document).on('click','#asberita', function(){
+        var checked = $(this).is(':checked');
+        if(checked){
+            $('#page_id').prop('disabled',true);
+        }else{
+            $('#page_id').prop('disabled',false);
+        }
     })
 
     $('form').on('keyup','#title',function(e){

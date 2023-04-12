@@ -89,6 +89,24 @@
 
                     <div id="infolain" class="collapse show" aria-labelledby="infolain" data-parent="#accordion">
                         <div class="card-body">
+
+                            <div class="form-group" style="padding-left:30px">
+                                <div class="form-check">
+                                    <input class="form-check-input" data-flag="{{isset($post) ? ($post->jenis_post == 'post' ? 'checked' : '') : ''}}" type="checkbox" name="asberita" value="post" id="asberita">
+                                    <label class="form-check-label" for="asberita">Tampilkan sebagai berita</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group"><label>Category</label>
+                                <select name="post_category_id" id="post_category_id" class="form-control form-control-sm">
+                                    @if($category)
+                                        @foreach($category as $cat)
+                                            <option {{isset($post) ? ($post->category_id == $cat->id ? 'selected' : '') : ''}} value="{{$cat->id}}">{{$cat->name}}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            
                             <div class="form-group"><label>Tampilkan di Pages</label>
                                 <select name="page_id[]" id="page_id" value="" class="form-control form-control-sm" multiple="multiple">
                                     @if($pages)
@@ -98,16 +116,6 @@
                                         @endif
                                         @foreach($pages as $page)
                                             <option {{isset($post_pages) ? (in_array($page->id,$post_pages) ? 'selected' : '') : ''}} value="{{$page->id}}">{{$page->title}}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-
-                            <div class="form-group"><label>Category</label>
-                                <select name="post_category_id" id="post_category_id" class="form-control form-control-sm">
-                                    @if($category)
-                                        @foreach($category as $cat)
-                                            <option {{isset($post) ? ($post->category_id == $cat->id ? 'selected' : '') : ''}} value="{{$cat->id}}">{{$cat->name}}</option>
                                         @endforeach
                                     @endif
                                 </select>
