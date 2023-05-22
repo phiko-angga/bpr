@@ -109,7 +109,7 @@ class PostAdminController extends Controller
             
         } catch (\Exception $e) {
             DB::rollback();
-            Log::Error($e->getMessage());
+            Log::error($e->getMessage());
             return Redirect::back()->withInput($request->input())->withErrors(['error'=> 'Tambah Post gagal, silahkan coba kembali.']);
             // something went wrong
         }
