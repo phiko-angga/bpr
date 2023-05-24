@@ -37,6 +37,12 @@
         <span class="menu-title">Produk Kredit</span>
       </a>
     </li>
+    <li class="nav-item {{ Request::segment(2) == 'pengajuan' ? 'active' : '' }}">
+      <a class="nav-link " href="{{route('pengajuan.index')}}">
+        <i class="mdi mdi-grid-large menu-icon"></i>
+        <span class="menu-title">Pengajuan</span>
+      </a>
+    </li>
     <li class="nav-item {{ Request::segment(2) == 'users' ? 'active' : '' }}">
       <a class="nav-link " href="{{route('users.index')}}">
         <i class="mdi mdi-grid-large menu-icon"></i>
