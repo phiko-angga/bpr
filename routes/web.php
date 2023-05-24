@@ -15,6 +15,8 @@ use App\Http\Controllers\Admin\UsersAdminController;
 use App\Http\Controllers\Admin\KreditProdukAdminController;
 use App\Http\Controllers\Admin\PengajuanAdminController;
 use App\Http\Controllers\PengajuanController;
+use App\Http\Controllers\SimulasiKreditController;
+use App\Http\Controllers\BeritaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +39,9 @@ Route::get('/page-not-found', function(){
     return view('notfound');
 });
 
+Route::get('/berita', [BeritaController::class,'index']);
 Route::post('/kirim-pengajuan', [PengajuanController::class,'submitPengajuan']);
+Route::post('/simulasi-kredit/kalkulasi', [SimulasiKreditController::class,'kalkulasi']);
 
 Route::group(['prefix' => 'adminpanel','middleware' => 'auth'], function () {
     Route::get('/', [DashboardController::class,'index'])->name('admin');

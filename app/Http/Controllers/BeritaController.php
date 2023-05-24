@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class BeritaController extends Controller
@@ -23,6 +24,7 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        return view('berita');
+        $posts_publish = Post::with('category')->where('status','=','publish')->where('jenis_post','=','post')->orderBy('date_publish','desc')->get();
+        return view('berita',compact('posts_publish'));
     }
 }

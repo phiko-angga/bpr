@@ -1,4 +1,4 @@
-@extends('layout._template',['title' => $page->title.' - BPR ADY'])
+@extends('layout._template',['title' => $page->title.' - BPR ADY BANYUWANGI'])
 @section('content')
 
 <main id="main" class="pages">

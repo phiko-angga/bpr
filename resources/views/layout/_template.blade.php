@@ -80,6 +80,8 @@
 
   <!-- Template Main JS File -->
   <script src="/js/main.js"></script>
+  <script src="/js/jquery.masknumber.min.js"></script>
+  <script src="/js/jquery.validate.min.js"></script>
   <script src="/js/kredit_simulator.js"></script>
   <script src="/js/pengajuan.js"></script>
   
