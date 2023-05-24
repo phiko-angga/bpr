@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\PagesAdminController;
 use App\Http\Controllers\Admin\HomeBannerAdminController;
 use App\Http\Controllers\Admin\UsersAdminController;
 use App\Http\Controllers\Admin\KreditProdukAdminController;
+use App\Http\Controllers\PengajuanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,8 @@ Route::get('/home', [HomeController::class,'index']);
 Route::get('/page-not-found', function(){
     return view('notfound');
 });
+
+Route::post('/kirim-pengajuan', [PengajuanController::class,'submitPengajuan']);
 
 Route::group(['prefix' => 'adminpanel','middleware' => 'auth'], function () {
     Route::get('/', [DashboardController::class,'index'])->name('admin');
