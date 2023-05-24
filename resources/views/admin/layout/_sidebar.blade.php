@@ -31,6 +31,12 @@
         <span class="menu-title">Home Banner</span>
       </a>
     </li>
+    <li class="nav-item {{ Request::segment(2) == 'produk-kredit' ? 'active' : '' }}">
+      <a class="nav-link " href="{{route('produk-kredit.index')}}">
+        <i class="mdi mdi-grid-large menu-icon"></i>
+        <span class="menu-title">Produk Kredit</span>
+      </a>
+    </li>
     <li class="nav-item {{ Request::segment(2) == 'users' ? 'active' : '' }}">
       <a class="nav-link " href="{{route('users.index')}}">
         <i class="mdi mdi-grid-large menu-icon"></i>

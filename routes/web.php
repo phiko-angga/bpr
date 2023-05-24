@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\PostCategoryAdminController;
 use App\Http\Controllers\Admin\PagesAdminController;
 use App\Http\Controllers\Admin\HomeBannerAdminController;
 use App\Http\Controllers\Admin\UsersAdminController;
+use App\Http\Controllers\Admin\KreditProdukAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,7 @@ Route::group(['prefix' => 'adminpanel','middleware' => 'auth'], function () {
     Route::resource('/home-banner', HomeBannerAdminController::class)->name('*','admin_banner');
     Route::resource('/pages', PagesAdminController::class)->name('*','admin_pages');
     Route::resource('/users', UsersAdminController::class)->name('*','admin_user');
+    Route::resource('/produk-kredit', KreditProdukAdminController::class)->name('*','admin_produk_kredit');
 
     Route::get('/dd_get_category', [PostCategoryAdminController::class,'dd_get_category'])->name('dd_get_category');
 

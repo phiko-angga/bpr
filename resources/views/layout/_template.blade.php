@@ -32,6 +32,10 @@
   <!-- Template Main CSS File -->
   <link href="/css/main.css" rel="stylesheet">
 
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
   <!-- =======================================================
   * Template Name: Impact - v1.2.0
   * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
@@ -76,7 +80,8 @@
 
   <!-- Template Main JS File -->
   <script src="/js/main.js"></script>
-
+  <script src="/js/kredit_simulator.js"></script>
+  
 </body>
 
 
