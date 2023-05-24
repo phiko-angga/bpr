@@ -29,7 +29,7 @@
                     <div class="col-md-12 grid-margin">
                         <div class="d-flex justify-content-between align-items-end flex-wrap">
                             
-                            <form method="get" action="{{route('pages.index')}}">
+                            <form method="get" action="{{route('pengajuan.index')}}" style="margin-left:auto">
                                 <div class=" me-3"><input value="{{isset($search) ? $search : ''}}" type="text" id="search" name="search" class="form-control form-control-sm" placeholder="Search"  autofocus></div>
                             </form>
                         </div>
