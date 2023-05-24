@@ -3,7 +3,8 @@
     padding: 30px;
     background: white;
     border: 2px solid #03A9F4;
-    border-radius: 10px;">
+    border-radius: 10px;
+    margin-bottom:24px;">
   <h4 class="text-center">SIMULATOR KREDIT</h4>
   <hr class="m-0">
   <p class="text-center" style="margin-bottom:0">Bunga per Tahun Mulai</p>
@@ -35,6 +36,6 @@
       <input type="number" class="form-control" placeholder="Max. 240" aria-label="Max. 240">
   </div>
   <div class="form-group" style="margin-bottom:20px">
-    <button type="button" id="btn_kalkulasi" class="btn btn-primary" style="width:100%;background-color:var(--color-primary)">KALKULASI</button>
+    <button type="button" id="btn_kalkulasi" class="btn btn-primary" style="width:100%;background-color:var(--color-secondary)">KALKULASI</button>
   </div>
 </div>
