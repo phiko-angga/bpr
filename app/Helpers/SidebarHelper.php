@@ -10,12 +10,9 @@ Class SidebarHelper {
         if($sidebar == 'kredit_simulator'){
             $data['produk'] = KreditProduk::all();
         }
-
-        return view('sidebar.'.$sidebar, $data);
+        if(\View::exists('sidebar.'.$sidebar))
+            return view('sidebar.'.$sidebar, $data);
+        else
+            return false;
     }
-
-    // private function kredit_simulator(){
-    //     $produk = KreditProduk::all();
-    //     return view('sidebar.kredit_simulator', compact('produk'));
-    // }
 }
