@@ -13,7 +13,7 @@ use App\Helpers\ImageHelper;
 use Redirect;
 use Log;
 
-class PagesAdminController extends Controller
+class MenuAdminController extends Controller
 {
     /**
      * Display a listing of the resource.

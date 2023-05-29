@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\HomeBannerAdminController;
 use App\Http\Controllers\Admin\UsersAdminController;
 use App\Http\Controllers\Admin\KreditProdukAdminController;
 use App\Http\Controllers\Admin\PengajuanAdminController;
+use App\Http\Controllers\Admin\MenuAdminController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\SimulasiKreditController;
 use App\Http\Controllers\BeritaController;
@@ -53,6 +54,7 @@ Route::group(['prefix' => 'adminpanel','middleware' => 'auth'], function () {
     Route::resource('/users', UsersAdminController::class)->name('*','admin_user');
     Route::resource('/produk-kredit', KreditProdukAdminController::class)->name('*','admin_produk_kredit');
     Route::resource('/pengajuan', PengajuanAdminController::class)->name('*','admin_pengajuan');
+    Route::resource('/menu', MenuAdminController::class)->name('*','admin_menu');
 
     Route::get('/dd_get_category', [PostCategoryAdminController::class,'dd_get_category'])->name('dd_get_category');
 

@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('part.card_list_pages', function ($view) {
-            $pages = Pages::all();
+            $pages = Pages::where('is_top',1)->get();
             view()->share('pages', $pages);
         });
 

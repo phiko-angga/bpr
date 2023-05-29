@@ -9,7 +9,7 @@ class Pages extends Model
 {
     protected $table = 'tb_pages';
     protected $fillable = [
-        'id', 'title', 'slug', 'contents', 'views', 'status', 'created_by', 'image', 'image_thumb'
+        'id', 'title', 'slug', 'contents', 'views', 'status', 'created_by', 'is_top', 'image', 'image_thumb'
     ];
     protected $hidden = [
         'updated_at', 'created_at',
