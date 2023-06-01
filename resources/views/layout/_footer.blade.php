@@ -6,15 +6,15 @@
     <div class="col-lg-5 col-md-12 footer-info">
       <a href="index.html" class="logo d-flex align-items-center">
         <span style="margin-right: auto;margin-left: auto;">
-          <img style="width: 180px;height: auto; max-height:unset" src="/img/logo.png" alt="">
+          <img style="width: 180px;height: auto; max-height:unset" src="{{isset($site) ? '/img/'.$site->logo_footer : '#'}}" alt="">
         </span>
       </a>
-      <p>Tangkas Berkualitas</p>
+      <p>{{isset($site) ? $site->deskripsi_footer : ''}}</p>
       <div class="social-links d-flex mt-4">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <a href="{{isset($site) ? $site->twitter : '#'}}" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="{{isset($site) ? $site->fb : '#'}}" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="{{isset($site) ? $site->instagram : '#'}}" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="{{isset($site) ? $site->youtube : '#'}}" class="youtube"><i class="bi bi-youtube"></i></a>
       </div>
     </div>
 
@@ -39,9 +39,8 @@
     <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
       <h4>Hubungi Kami</h4>
       <p>
-        Jln Gajah Mada No.202 <br>
-        Genteng, Banyuwangi <br><br>
-        <strong>Telp:</strong> (0333) 845 626, 845 900<br>
+        {{isset($site) ? $site->alamat : ''}}
+        <br><br><strong>Telp:</strong> {{isset($site) ? $site->telp : ''}}<br>
         <!-- <strong>Email:</strong> info@example.com<br> -->
       </p>
 

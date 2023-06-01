@@ -9,7 +9,7 @@ class Menu extends Model
 {
     protected $table = 'tb_menu';
     protected $fillable = [
-        'id', 'group_menu', 'name', 'link', 'icon', 'keterangan', 'is_active', 'is_parent', 'order', 'status'
+        'id','page_id', 'group_menu', 'name', 'link', 'icon', 'keterangan', 'is_active', 'is_parent', 'order', 'status'
     ];
     protected $hidden = [
         'updated_at', 'created_at',

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Site;
 use App\Models\Pages;
 use App\Models\Post;
 use App\Models\PostPages;
@@ -56,6 +57,11 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('layout._navbar', function ($view) {
             $menu = Menu::with('submenu')->where(['status' => 'public', 'is_active' => 1])->orderBy('order','asc')->get();
             view()->share('menus', $menu);
+        });
+
+        view()->composer('layout._template', function ($view) {
+            $site = Site::first();
+            view()->share('site', $site);
         });
 
         Paginator::useBootstrap();

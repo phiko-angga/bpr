@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Post;
-use App\Models\PostCategory;
+use App\Models\Menu;
 use App\Models\Pages;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -24,13 +23,16 @@ class MenuAdminController extends Controller
     {
         
         $search = $request->get('search');
+        $menu = Menu::where('status','public');
         if(isset($search)){
-            $pages = Pages::where('title', 'like', '%'.$search.'%')
-            ->orWhere('description', 'like', '%'.$search.'%')->paginate(10);;
+            $menu = $menu->where(function($query) use ($starttime,$endtime){
+                $query->where('name', 'like', '%'.$search.'%');
+                $query->orWhere('link', 'like', '%'.$search.'%');
+            })->paginate(10);
         }else
-            $pages = Pages::paginate(10);
+            $menu = $menu->paginate(10);
 
-        return view('admin.pages.list', compact('pages','search'));
+        return view('admin.menu.list', compact('menu','search'));
     }
 
     /**
@@ -41,7 +43,9 @@ class MenuAdminController extends Controller
     public function create()
     {
         $action = 'store';
-        return view('admin.pages.form',compact('action'));
+        $pages = new Pages();
+        $page_list = $pages->pagesNotInMenu();
+        return view('admin.menu.form',compact('action','page_list'));
     }
 
     /**
@@ -54,38 +58,28 @@ class MenuAdminController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'title'   => 'required',
-            'slug'   => 'required',
-            'description'   => 'required',
-            'contents'   => 'required',
-            'file'   => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+            'name'   => 'required',
+            'link'   => 'required',
         ]);
 
         DB::beginTransaction();
         try {
-            $data = $request->only(['title','slug','description','contents','status','is_top']);
-            $user = auth()->user()->id;
-            $data['created_by'] = $user;
-            $data['status'] = $request->submit;
+            $data = $request->only(['page_id','name','link']);
             
-            if ($request->hasFile('file')) {
-                $image = $request->file('file');
-                $imageHelper = new ImageHelper();
-                $name = $imageHelper->store_image($image,['dest_path' => 'img/pages-banner']);
-                $data['image'] = $name;
-                $data['image_thumb'] = $name;
-            }
-
-            $page = Pages::create($data);
+            $data['is_active'] = $request->has('is_active') ? $request->is_active : 0;
+            $data['order'] = $request->has('order') ? $request->is_active : 0;
+            $data['status'] = 'public';
+            $data['keterangan'] = '';
+            $menu = Menu::create($data);
             
             DB::commit();
 
-            return redirect('/adminpanel/pages')->with('info', 'Page berhasil ditambahkan');
+            return redirect('/adminpanel/menu')->with('info', 'Menu berhasil ditambahkan');
             
         } catch (\Exception $e) {
             DB::rollback();
             Log::Error($e->getMessage());
-            return Redirect::back()->withInput($request->input())->withErrors(['error'=> 'Tambah Page gagal, silahkan coba kembali.']);
+            return Redirect::back()->withInput($request->input())->withErrors(['error'=> 'Tambah Menu gagal, silahkan coba kembali.']);
             // something went wrong
         }
     }
@@ -109,9 +103,12 @@ class MenuAdminController extends Controller
      */
     public function edit($id)
     {
-        $page = Pages::find($id);
+        $menu = Menu::select('tb_menu.*')->selectRaw('ifnull(p.id,"") page_id2')->selectRaw('ifnull(p.title,"") page_name')
+        ->leftJoin('tb_pages as p','p.id','=','tb_menu.page_id')->where('tb_menu.id',$id)->first();
         $action = 'update';
-        return view('admin.pages.form',compact('page','action'));
+        $pages = new Pages();
+        $page_list = $pages->pagesNotInMenu();
+        return view('admin.menu.form',compact('menu','page_list','action'));
     }
 
     /**
@@ -124,45 +121,33 @@ class MenuAdminController extends Controller
     public function update(Request $request, $id)
     {
         request()->validate([
-            'title'   => 'required',
-            'slug'   => 'required',
-            'description'   => 'required',
-            'contents'   => 'required',
+            'link'   => 'required',
+            'name'   => 'required',
         ]);
 
-        $page = Pages::find($request->id);
-        if($page){
+        $menu = Menu::find($request->id);
+        if($menu){
 
             DB::beginTransaction();
             try {
-                $data = $request->only(['title','slug','description','contents','status','is_top']);
-                $data['status'] = $request->submit;
+                $data = $request->only(['page_id','name','link']);
                 
-                if(!$request->has('is_top'))
-                    $data['is_top'] = 0;
+                $data['is_active'] = $request->has('is_active') ? $request->is_active : 0;
+                $data['order'] = $request->has('order') ? $request->is_active : 0;
                 
-                if ($request->hasFile('file')) {
-                    $image = $request->file('file');
-                    $imageHelper = new ImageHelper();
-                    $name = $imageHelper->store_image($image,['dest_path' => 'img/pages-banner']);
-                    $data['image'] = $name;
-                    $data['image_thumb'] = $name;
-                }
-
-                $page = Pages::where('id',$page->id)->update($data);
-                
+                $menu = Menu::where('id',$menu->id)->update($data);
                 DB::commit();
 
-                return redirect('/adminpanel/pages')->with('info', 'Page berhasil di update');
+                return redirect('/adminpanel/menu')->with('info', 'Menu berhasil di update');
                 
             } catch (\Exception $e) {
                 DB::rollback();
                 Log::Error($e->getMessage());
-                return Redirect::back()->withInput($request->input())->withErrors(['error'=> 'Update Page gagal, silahkan coba kembali.']);
+                return Redirect::back()->withInput($request->input())->withErrors(['error'=> 'Update Menu gagal, silahkan coba kembali.']);
                 // something went wrong
             }
         }else{
-            return Redirect::back()->withInput($request->input())->withErrors(['error'=> 'Data Page tidak ditemukan.']);
+            return Redirect::back()->withInput($request->input())->withErrors(['error'=> 'Data Menu tidak ditemukan.']);
         }
     }
 
@@ -174,13 +159,12 @@ class MenuAdminController extends Controller
      */
     public function destroy($id)
     {
-        $page = Pages::find($id);
-        $category = PostCategory::where('pages_id',$id)->get();
-        if($page && $category->count() <= 0){
-            Pages::where('id',$page->id)->delete();
-            return redirect('/adminpanel/pages')->with('info', 'Page berhasil di delete.');
+        $menu = Menu::find($id);
+        if($menu){
+            Menu::where('id',$menu->id)->delete();
+            return redirect('/adminpanel/menu')->with('info', 'Menu berhasil di delete.');
         }else{
-            return Redirect::back()->withErrors(['error'=> 'Data Page tidak ditemukan atau sedang dipakai.']);
+            return Redirect::back()->withErrors(['error'=> 'Data Menu tidak ditemukan atau sedang dipakai.']);
         }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Menu;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,4 +16,9 @@ class Pages extends Model
         'updated_at', 'created_at',
     ];
     
+    function pagesNotInMenu(){
+
+        $pageInMenu = Menu::select('page_id')->whereNotNull('page_id')->get()->toArray();
+        return Self::select('*')->whereNotIn('id',$pageInMenu)->get();
+    }
 }

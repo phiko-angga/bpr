@@ -7,6 +7,13 @@
       </a>
     </li>
     
+    <li class="nav-item {{ Request::segment(2) == 'site' ? 'active' : '' }}">
+      <a class="nav-link" href="{{url('adminpanel/site')}}">
+        <i class="mdi mdi-web menu-icon"></i>
+        <span class="menu-title">Site</span>
+      </a>
+    </li>
+
     <li class="nav-item {{ Request::segment(2) == 'menu' ? 'active' : '' }}">
       <a class="nav-link" href="{{route('menu.index')}}">
         <i class="mdi mdi-view-headline menu-icon"></i>

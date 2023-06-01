@@ -7,15 +7,15 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>
     @if(isset($title)){{$title}}
-    @else 'BPR'
+    @else 'BPR ADY BANYUWANGI'
     @endif
   </title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="/img/favicon.png" rel="icon">
-  <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{isset($site) ? '/img/'.$site->logo_favicon : '/img/favicon.ico'}}" rel="icon">
+  <link href="{{isset($site) ? '/img/'.$site->logo_favicon : '/img/apple-icon.png'}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,6 +85,18 @@
   <script src="/js/kredit_simulator.js"></script>
   <script src="/js/pengajuan.js"></script>
   
+  <script>
+    $(document).ready(function(){
+      let codes = $(".content").find("code");
+      if(codes.length){
+        
+        $(codes).each(function() {
+          codeNew = $(this).text()
+          let codeParent = $(this).parent().html(codeNew);
+        });
+      }
+    })
+  </script>
 </body>
 
 

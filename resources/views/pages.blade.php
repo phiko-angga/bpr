@@ -38,11 +38,11 @@
 <section class="sample-page">
   <div class="container" data-aos="fade-up">
     <div class="row g-5">
-      <div class="col-lg-8">
+      <div class="col-lg-8 content">
     
         @include("part.card_list_post")
 
-        {!!$page->contents!!}
+        {!! $page->contents !!}
 
       </div>
       <div class="col-lg-4">
