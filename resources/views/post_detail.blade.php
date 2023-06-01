@@ -41,41 +41,28 @@
   <div class="container" data-aos="fade-up">
     <div class="row g-5">
       
-      <div class="col-lg-12">
-        <!-- <article class="blog-details"> -->
-
-          <!-- <div class="post-img">
-            <img src="{{url('img/post/'.$post->image)}}" alt="" class="img-fluid">
-          </div> -->
-
-          <!-- <h2 class="title">{{$post->title}}</h2> -->
-
-          <!-- <div class="meta-top">
-            <ul>
-              <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="2020-01-01">{{Carbon\Carbon::parse($post->date_publish)->format('M d, Y')}}</time></a></li>
-            </ul>
-          </div> -->
-          <!-- End meta top -->
-
+      <div class="col-lg-8">
+        
           <div class="content">
             {!!$post->contents!!}
           </div><!-- End post content -->
 
-          <div hidden class="meta-bottom">
-            <i class="bi bi-folder"></i>
-            <ul class="cats">
-              <li><a href="#">Business</a></li>
-            </ul>
-
-            <i class="bi bi-tags"></i>
-            <ul hidden class="tags">
-              <li><a href="#">Creative</a></li>
-              <li><a href="#">Tips</a></li>
-              <li><a href="#">Marketing</a></li>
-            </ul>
-          </div><!-- End meta bottom -->
 
         <!-- </article> -->
+      </div>
+      <div class="col-lg-4">
+        @php
+          if($post->features_sidebar != null){
+            $sidebars = explode(",",$post->features_sidebar);
+            if(count($sidebars) > 0){
+              $sidebarHelper = new \app\Helpers\SidebarHelper;
+              foreach($sidebars as $sb){
+                echo $sidebarHelper->show($sb);
+              }
+            }
+          }
+        @endphp
+        
       </div>
       
     </div>
