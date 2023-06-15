@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Pages;
 use App\Models\Post;
 use App\Models\PostCategory;
+use App\Models\PostCategoryPages;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -39,7 +41,8 @@ class PostCategoryAdminController extends Controller
     public function create()
     {
         $action = 'store';
-        return view('admin.postcategory.form',compact('action'));
+        $pages = Pages::all();
+        return view('admin.postcategory.form',compact('action','pages'));
     }
 
     /**
@@ -54,6 +57,7 @@ class PostCategoryAdminController extends Controller
         request()->validate([
             'name'   => 'required',
             'slug'   => 'required',
+            'file'   => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
         ]);
 
         DB::beginTransaction();
@@ -63,8 +67,28 @@ class PostCategoryAdminController extends Controller
             $data['created_by'] = $user;
             $data['status'] = $request->submit;
 
+            if ($request->hasFile('file')) {
+                $image = $request->file('file');
+                $imageHelper = new ImageHelper();
+                $name = $imageHelper->store_image($image,['dest_path' => 'img/pages-banner']);
+                $data['image'] = $name;
+            }
+
             $category = PostCategory::create($data);
             
+            // Update tb_postcategory_pages
+            if(isset($request->page_id)){
+                $pageId = $request->page_id;
+                $page_list = [];
+                foreach($pageId as $page) {
+                    $page_list[] = [
+                        'postcategory_id' => $category->id,
+                        'page_id' => $page,
+                    ];
+                }
+                PostCategoryPages::insert($page_list);
+            }
+
             DB::commit();
 
             return redirect('/adminpanel/post-category')->with('info', 'Category Post berhasil ditambahkan');
@@ -96,9 +120,10 @@ class PostCategoryAdminController extends Controller
      */
     public function edit($id)
     {
-        $category = PostCategory::find($id);
+        $category = PostCategory::with('pages')->find($id);
         $action = 'update';
-        return view('admin.postcategory.form',compact('category','action'));
+        $pages = Pages::all();
+        return view('admin.postcategory.form',compact('category','action','pages'));
     }
 
     /**
@@ -124,7 +149,28 @@ class PostCategoryAdminController extends Controller
                 $data = $request->only(['name','slug']);
                 $data['status'] = $request->submit;
 
-                $category = PostCategory::where('id',$category->id)->update($data);
+                if ($request->hasFile('file')) {
+                    $image = $request->file('file');
+                    $imageHelper = new ImageHelper();
+                    $name = $imageHelper->store_image($image,['dest_path' => 'img/pages-banner']);
+                    $data['image'] = $name;
+                }
+
+                $update = PostCategory::where('id',$category->id)->update($data);
+                
+                // Update tb_post_pages
+                PostCategoryPages::where('postcategory_id',$category->id)->delete();
+                if(isset($request->page_id)){
+                    $pageId = $request->page_id;
+                    $page_list = [];
+                    foreach($pageId as $page) {
+                        $page_list[] = [
+                            'postcategory_id' => $category->id,
+                            'page_id' => $page,
+                        ];
+                    }
+                    PostCategoryPages::insert($page_list);
+                }
                 
                 DB::commit();
 

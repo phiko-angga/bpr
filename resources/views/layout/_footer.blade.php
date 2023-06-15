@@ -10,7 +10,7 @@
         </span>
       </a>
       <p class="text-center">{{isset($site) ? $site->deskripsi_footer : ''}}</p>
-      <div class="social-links d-flex mt-4">
+      <div class="social-links d-flex justify-content-center mt-4">
         <a href="{{isset($site) ? $site->twitter : '#'}}" class="twitter"><i class="bi bi-twitter"></i></a>
         <a href="{{isset($site) ? $site->fb : '#'}}" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="{{isset($site) ? $site->instagram : '#'}}" class="instagram"><i class="bi bi-instagram"></i></a>
@@ -21,18 +21,22 @@
     <div class="col-lg-2 col-6 footer-links">
       <h4>Tabungan</h4>
       <ul>
-        <li><a href="#">Buka Tabungan</a></li>
-        <li><a href="#">Tabungan Sikaya</a></li>
-        <li><a href="#">Virtual Account BPR ADY</a></li>
+        @isset($tabungan)
+          @foreach($tabungan as $t)
+            <li><a href="{{url($t->slug_category.'/'.$t->slug)}}">{{$t->title}}</a></li>
+          @endforeach
+        @endisset
       </ul>
     </div>
 
     <div class="col-lg-2 col-6 footer-links">
       <h4>Kredit</h4>
       <ul>
-        <li><a href="#">Kredit Multiguna</a></li>
-        <li><a href="#">Kredit KPR</a></li>
-        <li><a href="#">Kredit Modal Kerja</a></li>
+        @isset($kredit)
+          @foreach($kredit as $k)
+            <li><a href="{{url($k->slug_category.'/'.$k->slug)}}">{{$k->title}}</a></li>
+          @endforeach
+        @endisset
       </ul>
     </div>
 

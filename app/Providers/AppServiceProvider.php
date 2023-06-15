@@ -70,6 +70,13 @@ class AppServiceProvider extends ServiceProvider
             view()->share('menus', $menu);
         });
 
+        view()->composer('layout._footer', function ($view) {
+            $post = new Post;
+            $tabungan = $post->getByCategory('tabungan',['limit' => 3]);
+            $kredit = $post->getByCategory('kredit',['limit' => 3]);
+            view()->share(['tabungan' => $tabungan, 'kredit' => $kredit]);
+        });
+
         view()->composer('layout._template', function ($view) {
             $site = Site::first();
             $wa_phone = Config::where('name','wa_phone')->first();

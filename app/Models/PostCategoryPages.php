@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PostPages extends Model
+class PostCategoryPages extends Model
 {
     protected $table = 'tb_postcategory_pages';
     protected $fillable = [

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\PostCategoryPages;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,6 +16,10 @@ class PostCategory extends Model
         'updated_at', 'created_at',
     ];
  
+    public function pages(){
+        return $this->hasMany(PostCategoryPages::class,'postcategory_id','id');
+    }
+
     public function getAllByPages($page){
         $data = Self::select('tb_post_category.*')
         ->join('tb_postcategory_pages as pp','pp.postcategory_id','=','tb_post_category.id')

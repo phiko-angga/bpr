@@ -40,6 +40,22 @@ class Post extends Model
         return $data;
     }
  
+    public function getByCategory($category, $filter = null){
+        $data = Self::select('tb_post.*')->selectRaw('pc.slug as slug_category')
+        ->join('tb_post_category as pc','pc.id','=','tb_post.post_category_id')
+        ->where('pc.slug',$category);
+        
+        if(isset($filter)){
+            if(isset($filter['jenis']))
+                $data = $data->where('pc.jenis',$filter['jenis']);
+            if(isset($filter['limit']))
+                $data = $data->limit($filter['limit']);
+        }
+
+        $data = $data->get();
+        return $data;
+    }
+ 
     public function getAllByPages($page){
         $data = Self::select('tb_post.*')->selectRaw('pc.slug as slug_category')
         ->join('tb_post_category as pc','pc.id','=','tb_post.post_category_id')
