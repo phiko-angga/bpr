@@ -41,6 +41,7 @@
       <div class="col-lg-8 content">
     
         @include("part.card_list_post")
+        @include("part.card_list_postcategory")
 
         {!! $page->contents !!}
 

@@ -60,7 +60,7 @@
   <!-- End Footer -->
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  <a href="#" class="wa-btn d-flex align-items-center justify-content-center">
+  <a href="https://wa.me/{{isset($wa_phone) ? $wa_phone->value : ''}}?text={{isset($wa_message) ? urlencode($wa_message->value) : ''}}" class="wa-btn d-flex align-items-center justify-content-center">
     <img src="{{url('img/whatsapp_icon.png')}}" alt="">
     <div class="wa-tooltip">
       <div>Hubungi kami</div>

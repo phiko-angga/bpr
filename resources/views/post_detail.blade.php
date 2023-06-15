@@ -30,7 +30,9 @@
     <div class="container">
       <ol>
         <li><a href="{{url('/')}}">Home</a></li>
-        <li><a href="{{url($post->slug_category)}}">{{$post->category}}</a></li>
+        @isset($getcategory)
+        <li><a href="{{$getcategory[0]->tipe == 'pages' ? url($post->slug_category) : url('category/'.$post->slug_category)}}">{{$post->category}}</a></li>
+        @endisset
         <li>{{$post->title}}</li>
       </ol>
     </div>

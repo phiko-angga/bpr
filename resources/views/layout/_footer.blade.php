@@ -9,7 +9,7 @@
           <img style="width: 180px;height: auto; max-height:unset" src="{{isset($site) ? '/img/'.$site->logo_footer : '#'}}" alt="">
         </span>
       </a>
-      <p>{{isset($site) ? $site->deskripsi_footer : ''}}</p>
+      <p class="text-center">{{isset($site) ? $site->deskripsi_footer : ''}}</p>
       <div class="social-links d-flex mt-4">
         <a href="{{isset($site) ? $site->twitter : '#'}}" class="twitter"><i class="bi bi-twitter"></i></a>
         <a href="{{isset($site) ? $site->fb : '#'}}" class="facebook"><i class="bi bi-facebook"></i></a>

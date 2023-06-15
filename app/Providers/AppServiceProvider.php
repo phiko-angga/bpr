@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Config;
 use App\Models\Site;
 use App\Models\Pages;
 use App\Models\Post;
+use App\Models\PostCategory;
 use App\Models\PostPages;
 use App\Models\HomeBanner;
 use App\Models\Menu;
@@ -31,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         view()->composer('part.card_list_pages', function ($view) {
             $pages = Pages::where('is_top',1)->get();
             view()->share('pages', $pages);
@@ -42,6 +45,14 @@ class AppServiceProvider extends ServiceProvider
             $posts = $post->getAllByPages(request()->path());
             $posts_publish = $posts->where('status','=','publish')->where('jenis_post','=','info');
             view()->share('posts', $posts_publish);
+        });
+
+        view()->composer('part.card_list_postcategory', function ($view) {
+            
+            $postcategory = new PostCategory;
+            $postcategories = $postcategory->getAllByPages(request()->path());
+            $publish = $postcategories->where('status','=','publish');
+            view()->share('postcategories', $publish);
         });
 
         view()->composer('part.card_list_beritatop3', function ($view) {
@@ -61,7 +72,9 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('layout._template', function ($view) {
             $site = Site::first();
-            view()->share('site', $site);
+            $wa_phone = Config::where('name','wa_phone')->first();
+            $wa_message = Config::where('name','wa_message')->first();
+            view()->share(['site' => $site, 'wa_phone' => $wa_phone, 'wa_message' => $wa_message]);
         });
 
         Paginator::useBootstrap();

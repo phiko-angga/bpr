@@ -42,6 +42,7 @@ Route::get('/page-not-found', function(){
 });
 
 Route::get('/berita', [BeritaController::class,'index']);
+Route::get('/category/{name}', [PostController::class,'getPostByCategory']);
 Route::post('/kirim-pengajuan', [PengajuanController::class,'submitPengajuan']);
 Route::post('/simulasi-kredit/kalkulasi', [SimulasiKreditController::class,'kalkulasi']);
 
