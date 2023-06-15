@@ -48,6 +48,8 @@ class Post extends Model
         if(isset($filter)){
             if(isset($filter['jenis']))
                 $data = $data->where('pc.jenis',$filter['jenis']);
+            if(isset($filter['jenis_post']))
+                $data = $data->where('tb_post.jenis_post',$filter['jenis_post']);
             if(isset($filter['limit']))
                 $data = $data->limit($filter['limit']);
         }

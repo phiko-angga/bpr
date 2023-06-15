@@ -72,8 +72,8 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('layout._footer', function ($view) {
             $post = new Post;
-            $tabungan = $post->getByCategory('tabungan',['limit' => 3]);
-            $kredit = $post->getByCategory('kredit',['limit' => 3]);
+            $tabungan = $post->getByCategory('tabungan',['limit' => 3,'jenis_post' => 'info']);
+            $kredit = $post->getByCategory('kredit',['limit' => 3,'jenis_post' => 'info']);
             view()->share(['tabungan' => $tabungan, 'kredit' => $kredit]);
         });
 
