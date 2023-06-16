@@ -98,10 +98,10 @@
                             </div>
 
                             <div class="form-group"><label>Category</label>
-                                <select name="post_category_id" id="post_category_id" class="form-control form-control-sm">
+                                <select name="post_category_id" id="post_category_id" value="{{isset($post) ? $post->post_category_id : ''}}" class="form-control form-control-sm">
                                     @if($category)
                                         @foreach($category as $cat)
-                                            <option {{isset($post) ? ($post->category_id == $cat->id ? 'selected' : '') : ''}} value="{{$cat->id}}">{{$cat->name}}</option>
+                                            <option {{isset($post) ? ($post->post_category_id == $cat->id ? 'selected' : '') : ''}} value="{{$cat->id}}">{{$cat->name}}</option>
                                         @endforeach
                                     @endif
                                 </select>

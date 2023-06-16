@@ -138,7 +138,6 @@ class PostAdminController extends Controller
         $category = PostCategory::all();
         $pages = Pages::all();
         $action = 'update';
-        
         // dd(array_column($post->pages->toArray(),'page_id'));
         return view('admin.post.form',compact('post','category','pages','action'));
     }
